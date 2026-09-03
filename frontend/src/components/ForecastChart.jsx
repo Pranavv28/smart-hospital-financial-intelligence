@@ -19,7 +19,15 @@ import { formatINR, formatCompactINR } from "../utils/formatters.js";
 export default function ForecastChart({ dashboardData }) {
   const [selectedScenario, setSelectedScenario] = useState("baseline");
 
-  // Chart data exactly matching Reference Screen 4
+  const scenarioConfig = {
+    conservative: { growthRate: 0.02, momLabel: "2% MoM", projectedRev: 1380000, projectedCashflow: 920000, margin: "66.7%", confidence: "94.8%" },
+    baseline: { growthRate: 0.05, momLabel: "5% MoM", projectedRev: 1490000, projectedCashflow: 1034000, margin: "69.4%", confidence: "92.4%" },
+    aggressive: { growthRate: 0.09, momLabel: "9% MoM", projectedRev: 1640000, projectedCashflow: 1180000, margin: "72.0%", confidence: "88.6%" },
+  };
+
+  const currentSc = scenarioConfig[selectedScenario] || scenarioConfig.baseline;
+
+  // Dynamic trajectory data with forecast points matching selected scenario
   const trajectoryData = [
     { month: "Dec 19", actual: 0, forecast: null, expenses: 0 },
     { month: "Jan 20", actual: 2000, forecast: null, expenses: 0 },
@@ -41,8 +49,8 @@ export default function ForecastChart({ dashboardData }) {
     { month: "Jun 26", actual: 0, forecast: null, expenses: 120000 },
     { month: "Jul 26", actual: 0, forecast: null, expenses: 135000 },
     { month: "Aug 26", actual: 0, forecast: 0, expenses: 146000 },
-    { month: "Sep 26 (F)", actual: null, forecast: 480000, expenses: 148000 },
-    { month: "Nov 26 (F)", actual: null, forecast: 550000, expenses: 152000 },
+    { month: "Sep 26 (F)", actual: null, forecast: Math.round(480000 * (1 + (currentSc.growthRate - 0.05))), expenses: 148000 },
+    { month: "Nov 26 (F)", actual: null, forecast: Math.round(550000 * (1 + (currentSc.growthRate - 0.05) * 2)), expenses: 152000 },
   ];
 
   return (
@@ -96,10 +104,10 @@ export default function ForecastChart({ dashboardData }) {
           </span>
           <div className="flex items-baseline justify-between">
             <div className="text-2xl font-bold text-slate-900 tracking-tight font-tabular">
-              ₹14.90 L
+              {formatCompactINR(currentSc.projectedRev)}
             </div>
             <span className="text-xs font-bold text-emerald-600 flex items-center">
-              <ArrowUpRight className="w-3.5 h-3.5" /> 5% MoM
+              <ArrowUpRight className="w-3.5 h-3.5" /> {currentSc.momLabel}
             </span>
           </div>
           <p className="text-[11px] text-slate-400 mt-1">
@@ -114,10 +122,10 @@ export default function ForecastChart({ dashboardData }) {
           </span>
           <div className="flex items-baseline justify-between">
             <div className="text-2xl font-bold text-[#059669] tracking-tight font-tabular">
-              ₹10.34 L
+              {formatCompactINR(currentSc.projectedCashflow)}
             </div>
             <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200">
-              69.4% margin
+              {currentSc.margin} margin
             </span>
           </div>
           <p className="text-[11px] text-slate-400 mt-1">
@@ -132,7 +140,7 @@ export default function ForecastChart({ dashboardData }) {
           </span>
           <div className="flex items-baseline justify-between">
             <div className="text-2xl font-bold text-slate-900 tracking-tight font-tabular">
-              92.4%
+              {currentSc.confidence}
             </div>
             <div className="flex items-center gap-1 text-xs font-bold text-emerald-700">
               <ShieldCheck className="w-3.5 h-3.5" />

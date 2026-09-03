@@ -100,11 +100,11 @@ export default function Dashboard({
                 Audit Discovery
               </span>
               <span className="text-xs font-semibold text-slate-800">
-                10 unbilled clinical procedure flagged
+                {leakageCount} unbilled clinical procedure{leakageCount !== 1 ? "s" : ""} flagged
               </span>
             </div>
             <p className="text-xs text-slate-600">
-              Potential Revenue Leakage: <strong className="text-slate-900 font-bold">₹32,600</strong> <span className="text-slate-500">(e.g., MRI Scan missing from discharge invoice)</span>
+              Potential Revenue Leakage: <strong className="text-slate-900 font-bold">{formatINR(potentialLeakage)}</strong> <span className="text-slate-500">(e.g., MRI Scan missing from discharge invoice)</span>
             </p>
           </div>
         </div>
@@ -128,13 +128,13 @@ export default function Dashboard({
             </div>
           </div>
           <div className="text-2xl font-bold text-slate-900 tracking-tight font-tabular">
-            ₹1.46 L
+            {formatCompactINR(totalRevenue)}
           </div>
           <div className="mt-2 text-[11px] leading-tight space-y-0.5">
             <div className="text-emerald-600 font-semibold flex items-center gap-0.5">
               <ArrowUpRight className="w-3 h-3" /> +8.4% vs last cycle
             </div>
-            <div className="text-slate-400">₹1,45,900 ledger actuals</div>
+            <div className="text-slate-400">{formatINR(totalRevenue)} ledger actuals</div>
           </div>
         </div>
 
@@ -147,11 +147,11 @@ export default function Dashboard({
             </div>
           </div>
           <div className="text-2xl font-bold text-slate-900 tracking-tight font-tabular">
-            ₹8.17 L
+            {formatCompactINR(totalExpenses)}
           </div>
           <div className="mt-2 text-[11px] leading-tight space-y-0.5">
             <div className="text-slate-600 font-medium">AMC, staff and consumables</div>
-            <div className="text-slate-400">₹8,17,000 total debit</div>
+            <div className="text-slate-400">{formatINR(totalExpenses)} total debit</div>
           </div>
         </div>
 
@@ -165,16 +165,16 @@ export default function Dashboard({
             </div>
           </div>
           <div className="text-2xl font-bold text-slate-900 tracking-tight font-tabular">
-            -₹6.71 L
+            {formatCompactINR(netProfit)}
           </div>
           <div className="mt-2 text-[11px] leading-tight space-y-0.5">
             <div className="flex items-center gap-1.5">
               <span className="text-emerald-700 font-bold bg-emerald-50 px-1 py-0.2 rounded">
-                -460% margin
+                {totalRevenue > 0 ? ((netProfit / totalRevenue) * 100).toFixed(0) : 0}% margin
               </span>
               <span className="text-slate-400">EBITDA proxy</span>
             </div>
-            <div className="text-slate-400">-₹6,71,100 net balance</div>
+            <div className="text-slate-400">{formatINR(netProfit)} net balance</div>
           </div>
         </div>
 
@@ -187,11 +187,11 @@ export default function Dashboard({
             </div>
           </div>
           <div className="text-2xl font-bold text-slate-900 tracking-tight font-tabular">
-            ₹74.8k
+            {formatCompactINR(outstandingReceivables)}
           </div>
           <div className="mt-2 text-[11px] leading-tight space-y-0.5">
             <div className="text-slate-600 font-medium">92% in &lt;30 day bucket</div>
-            <div className="text-slate-400">₹74,820 pending</div>
+            <div className="text-slate-400">{formatINR(outstandingReceivables)} pending</div>
           </div>
         </div>
 
@@ -208,10 +208,10 @@ export default function Dashboard({
             </div>
           </div>
           <div className="text-2xl font-bold text-slate-900 tracking-tight font-tabular">
-            ₹32,600
+            {formatINR(potentialLeakage)}
           </div>
           <div className="mt-2 text-[11px] leading-tight space-y-0.5">
-            <div className="text-amber-800 font-bold">10 unbilled service item</div>
+            <div className="text-amber-800 font-bold">{leakageCount} unbilled service item{leakageCount !== 1 ? "s" : ""}</div>
             <div className="text-slate-500">Recoverable with EHR audit</div>
           </div>
         </div>
