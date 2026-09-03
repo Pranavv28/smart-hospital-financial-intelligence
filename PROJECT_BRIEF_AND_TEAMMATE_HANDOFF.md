@@ -10,6 +10,10 @@
 ### The 30-Second Pitch
 > **"Aegis is an AI-powered financial decision-support platform for hospital CFOs and finance directors. While existing hospital accounting tools tell you what was earned, Aegis tells you where you are silently losing money through unbilled clinical procedures, and whether major multi-crore capital equipment purchases will actually break even before you buy them."**
 
+### 🚀 Live Production Deployment
+- **Live Vercel URL:** [https://frontend-dun-sigma-71.vercel.app](https://frontend-dun-sigma-71.vercel.app)
+- **GitHub Repository:** [https://github.com/Pranavv28/Smart-Hospital-Financial-Intelligence](https://github.com/Pranavv28/Smart-Hospital-Financial-Intelligence)
+
 ### Core Mental Model
 $$\mathbf{Source\ of\ Truth} \longrightarrow \mathbf{Automated\ Intelligence} \longrightarrow \mathbf{Decisive\ Capital\ Action}$$
 
