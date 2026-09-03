@@ -13,6 +13,9 @@ export function computeLeakage(seedData = {}) {
   const servicesById = new Map(
     (seedData.services || []).map((service) => [service.id, service])
   );
+  const patientsById = new Map(
+    (seedData.patients || []).map((p) => [p.id, p])
+  );
   const invoicesByAdmissionId = new Map();
 
   for (const invoice of seedData.invoices || []) {
@@ -25,6 +28,7 @@ export function computeLeakage(seedData = {}) {
 
   return (seedData.admissions || []).flatMap((admission) => {
     const billedServiceIds = invoicesByAdmissionId.get(admission.id) || new Set();
+    const patient = patientsById.get(admission.patient_id);
 
     return (admission.service_ids || [])
       .filter((serviceId) => !billedServiceIds.has(serviceId))
@@ -33,12 +37,13 @@ export function computeLeakage(seedData = {}) {
         return {
           admissionId: admission.id,
           patientId: admission.patient_id,
+          patientName: patient?.name || `Patient (${admission.patient_id})`,
           serviceId,
           serviceName: service?.name || serviceId,
-          department: service?.department || "Unknown",
+          department: service?.department || "General",
           impact: Number(service?.price) || 0,
-          reason: "Completed service missing from invoice",
-          date: admission.date || "",
+          reason: "Completed clinical service omitted from final patient invoice",
+          date: admission.date || "2026-08-10",
         };
       });
   });

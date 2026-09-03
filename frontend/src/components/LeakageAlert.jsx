@@ -183,13 +183,7 @@ export default function LeakageAlert({
                         {alert.admissionId}
                       </div>
                       <div className="text-slate-500 text-[11px]">
-                        {alert.patientId === "p1"
-                          ? "Haley Perkins"
-                          : alert.patientId === "p2"
-                          ? "Christopher Bright"
-                          : alert.patientId === "p5"
-                          ? "Peter Fitzgerald"
-                          : "Cathy Small"}
+                        {alert.patientName || alert.patientId}
                       </div>
                     </td>
                     <td className="py-3">
