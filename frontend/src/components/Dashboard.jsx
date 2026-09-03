@@ -47,6 +47,48 @@ function CustomChartTooltip({ active, payload, label }) {
   return null;
 }
 
+// Custom department tooltip displaying Revenue, Expenses, and Net Profit / Loss
+function DepartmentChartTooltip({ active, payload, label }) {
+  if (active && payload && payload.length) {
+    const data = payload[0]?.payload || {};
+    const rev = Number(data.revenue) || 0;
+    const exp = Number(data.expenses) || 0;
+    const net = rev - exp;
+    const isProfit = net >= 0;
+
+    return (
+      <div className="bg-white border border-slate-200 p-3 rounded-lg shadow-md text-xs font-sans space-y-1.5 min-w-[190px]">
+        <p className="font-bold text-slate-900 border-b border-slate-100 pb-1">{label}</p>
+        <div className="space-y-1">
+          <div className="flex items-center justify-between gap-3">
+            <span className="flex items-center gap-1.5 text-slate-600">
+              <span className="w-2 h-2 rounded-full bg-[#1E40AF]" />
+              Revenue:
+            </span>
+            <span className="font-bold text-slate-900 font-tabular">{formatINR(rev)}</span>
+          </div>
+          <div className="flex items-center justify-between gap-3">
+            <span className="flex items-center gap-1.5 text-slate-600">
+              <span className="w-2 h-2 rounded-full bg-[#DC2626]" />
+              Expenses:
+            </span>
+            <span className="font-bold text-slate-900 font-tabular">{formatINR(exp)}</span>
+          </div>
+        </div>
+        <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between gap-3">
+          <span className="font-semibold text-slate-700">
+            {isProfit ? "Net Profit:" : "Net Loss:"}
+          </span>
+          <span className={`font-bold font-tabular ${isProfit ? "text-emerald-700" : "text-rose-700"}`}>
+            {isProfit ? "+" : ""}{formatINR(net)}
+          </span>
+        </div>
+      </div>
+    );
+  }
+  return null;
+}
+
 export default function Dashboard({
   dashboardData,
   onNavigateToLeakage,
@@ -307,7 +349,7 @@ export default function Dashboard({
                   tickFormatter={(val) => formatCompactINR(val)}
                   tickLine={false}
                 />
-                <Tooltip content={<CustomChartTooltip />} />
+                <Tooltip content={<DepartmentChartTooltip />} />
                 <Bar
                   dataKey="revenue"
                   name="Revenue"
