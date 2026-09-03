@@ -1,0 +1,722 @@
+{
+  "patients": [
+    {
+      "id": "p1",
+      "name": "Michelle Daniels",
+      "age": 72,
+      "gender": "M",
+      "condition": "Cancer"
+    },
+    {
+      "id": "p2",
+      "name": "Aaron Martinez",
+      "age": 38,
+      "gender": "F",
+      "condition": "Hypertension"
+    },
+    {
+      "id": "p3",
+      "name": "Connor Hansen",
+      "age": 75,
+      "gender": "F",
+      "condition": "Diabetes"
+    },
+    {
+      "id": "p4",
+      "name": "Robert Bauer",
+      "age": 68,
+      "gender": "F",
+      "condition": "Asthma"
+    },
+    {
+      "id": "p5",
+      "name": "Brooke Brady",
+      "age": 44,
+      "gender": "F",
+      "condition": "Cancer"
+    },
+    {
+      "id": "p6",
+      "name": "Ms. Natalie Gamble",
+      "age": 46,
+      "gender": "F",
+      "condition": "Obesity"
+    },
+    {
+      "id": "p7",
+      "name": "Haley Perkins",
+      "age": 63,
+      "gender": "F",
+      "condition": "Arthritis"
+    },
+    {
+      "id": "p8",
+      "name": "Mrs. Jamie Campbell",
+      "age": 38,
+      "gender": "M",
+      "condition": "Obesity"
+    },
+    {
+      "id": "p9",
+      "name": "Luke Burgess",
+      "age": 34,
+      "gender": "F",
+      "condition": "Hypertension"
+    },
+    {
+      "id": "p10",
+      "name": "Daniel Schmidt",
+      "age": 63,
+      "gender": "M",
+      "condition": "Asthma"
+    },
+    {
+      "id": "p11",
+      "name": "Timothy Burns",
+      "age": 67,
+      "gender": "F",
+      "condition": "Asthma"
+    },
+    {
+      "id": "p12",
+      "name": "Christopher Bright",
+      "age": 48,
+      "gender": "M",
+      "condition": "Asthma"
+    },
+    {
+      "id": "p13",
+      "name": "Kathryn Stewart",
+      "age": 58,
+      "gender": "F",
+      "condition": "Arthritis"
+    },
+    {
+      "id": "p14",
+      "name": "Dr. Eileen Thompson",
+      "age": 59,
+      "gender": "M",
+      "condition": "Asthma"
+    },
+    {
+      "id": "p15",
+      "name": "Paul Henderson",
+      "age": 72,
+      "gender": "F",
+      "condition": "Hypertension"
+    },
+    {
+      "id": "p16",
+      "name": "Peter Fitzgerald",
+      "age": 73,
+      "gender": "M",
+      "condition": "Obesity"
+    },
+    {
+      "id": "p17",
+      "name": "Cathy Small",
+      "age": 51,
+      "gender": "F",
+      "condition": "Asthma"
+    },
+    {
+      "id": "p18",
+      "name": "Mr. Kenneth Moore",
+      "age": 34,
+      "gender": "F",
+      "condition": "Diabetes"
+    }
+  ],
+  "services": [
+    {
+      "id": "s1",
+      "name": "MRI Scan",
+      "department": "Radiology",
+      "price": 18500
+    },
+    {
+      "id": "s2",
+      "name": "X-Ray",
+      "department": "Radiology",
+      "price": 2200
+    },
+    {
+      "id": "s3",
+      "name": "CT Scan",
+      "department": "Radiology",
+      "price": 12000
+    },
+    {
+      "id": "s4",
+      "name": "ECG Test",
+      "department": "Cardiology",
+      "price": 1800
+    },
+    {
+      "id": "s5",
+      "name": "Angiography",
+      "department": "Cardiology",
+      "price": 45000
+    },
+    {
+      "id": "s6",
+      "name": "Comprehensive Blood Test",
+      "department": "General",
+      "price": 1200
+    },
+    {
+      "id": "s7",
+      "name": "Specialist Consultation",
+      "department": "General",
+      "price": 800
+    },
+    {
+      "id": "s8",
+      "name": "Ultrasound",
+      "department": "Radiology",
+      "price": 3500
+    },
+    {
+      "id": "s9",
+      "name": "Knee Arthroscopy",
+      "department": "Orthopedics",
+      "price": 65000
+    },
+    {
+      "id": "s10",
+      "name": "EEG Scan",
+      "department": "Neurology",
+      "price": 8500
+    }
+  ],
+  "admissions": [
+    {
+      "id": "a1",
+      "patient_id": "p1",
+      "date": "2020-04-19",
+      "service_ids": [
+        "s1",
+        "s6",
+        "s7"
+      ]
+    },
+    {
+      "id": "a2",
+      "patient_id": "p2",
+      "date": "2023-08-13",
+      "service_ids": [
+        "s4",
+        "s6",
+        "s7"
+      ]
+    },
+    {
+      "id": "a3",
+      "patient_id": "p3",
+      "date": "2019-12-12",
+      "service_ids": [
+        "s4",
+        "s6",
+        "s7"
+      ]
+    },
+    {
+      "id": "a4",
+      "patient_id": "p4",
+      "date": "2020-05-22",
+      "service_ids": [
+        "s2",
+        "s7"
+      ]
+    },
+    {
+      "id": "a5",
+      "patient_id": "p5",
+      "date": "2021-10-08",
+      "service_ids": [
+        "s1",
+        "s6",
+        "s7"
+      ]
+    },
+    {
+      "id": "a6",
+      "patient_id": "p6",
+      "date": "2023-01-01",
+      "service_ids": [
+        "s6",
+        "s7",
+        "s8"
+      ]
+    },
+    {
+      "id": "a7",
+      "patient_id": "p7",
+      "date": "2020-06-23",
+      "service_ids": [
+        "s1",
+        "s7"
+      ]
+    },
+    {
+      "id": "a8",
+      "patient_id": "p8",
+      "date": "2020-03-08",
+      "service_ids": [
+        "s6",
+        "s7",
+        "s8"
+      ]
+    },
+    {
+      "id": "a9",
+      "patient_id": "p9",
+      "date": "2021-03-04",
+      "service_ids": [
+        "s4",
+        "s6",
+        "s7"
+      ]
+    },
+    {
+      "id": "a10",
+      "patient_id": "p10",
+      "date": "2022-11-15",
+      "service_ids": [
+        "s2",
+        "s7"
+      ]
+    },
+    {
+      "id": "a11",
+      "patient_id": "p11",
+      "date": "2023-06-28",
+      "service_ids": [
+        "s2",
+        "s7"
+      ]
+    },
+    {
+      "id": "a12",
+      "patient_id": "p12",
+      "date": "2020-01-21",
+      "service_ids": [
+        "s4",
+        "s6",
+        "s7"
+      ]
+    },
+    {
+      "id": "a13",
+      "patient_id": "p13",
+      "date": "2022-05-12",
+      "service_ids": [
+        "s9",
+        "s7"
+      ]
+    },
+    {
+      "id": "a14",
+      "patient_id": "p14",
+      "date": "2021-08-02",
+      "service_ids": [
+        "s2",
+        "s7"
+      ]
+    },
+    {
+      "id": "a15",
+      "patient_id": "p15",
+      "date": "2020-05-15",
+      "service_ids": [
+        "s4",
+        "s6",
+        "s7"
+      ]
+    },
+    {
+      "id": "a16",
+      "patient_id": "p16",
+      "date": "2020-05-15",
+      "service_ids": [
+        "s6",
+        "s7",
+        "s8"
+      ]
+    },
+    {
+      "id": "a17",
+      "patient_id": "p17",
+      "date": "2023-12-23",
+      "service_ids": [
+        "s2",
+        "s7"
+      ]
+    },
+    {
+      "id": "a18",
+      "patient_id": "p18",
+      "date": "2022-06-21",
+      "service_ids": [
+        "s4",
+        "s6",
+        "s7"
+      ]
+    }
+  ],
+  "invoices": [
+    {
+      "id": "inv1",
+      "admission_id": "a1",
+      "service_ids": [
+        "s1",
+        "s6",
+        "s7"
+      ],
+      "subtotal": 20500,
+      "discount": 500,
+      "total": 20000
+    },
+    {
+      "id": "inv2",
+      "admission_id": "a2",
+      "service_ids": [
+        "s4",
+        "s6",
+        "s7"
+      ],
+      "subtotal": 3800,
+      "discount": 0,
+      "total": 3800
+    },
+    {
+      "id": "inv3",
+      "admission_id": "a3",
+      "service_ids": [
+        "s4",
+        "s6",
+        "s7"
+      ],
+      "subtotal": 3800,
+      "discount": 0,
+      "total": 3800
+    },
+    {
+      "id": "inv4",
+      "admission_id": "a4",
+      "service_ids": [
+        "s2",
+        "s7"
+      ],
+      "subtotal": 3000,
+      "discount": 0,
+      "total": 3000
+    },
+    {
+      "id": "inv5",
+      "admission_id": "a5",
+      "service_ids": [
+        "s1",
+        "s6",
+        "s7"
+      ],
+      "subtotal": 20500,
+      "discount": 500,
+      "total": 20000
+    },
+    {
+      "id": "inv6",
+      "admission_id": "a6",
+      "service_ids": [
+        "s6",
+        "s7",
+        "s8"
+      ],
+      "subtotal": 5500,
+      "discount": 200,
+      "total": 5300
+    },
+    {
+      "id": "inv7",
+      "admission_id": "a7",
+      "service_ids": [
+        "s7"
+      ],
+      "subtotal": 800,
+      "discount": 0,
+      "total": 800
+    },
+    {
+      "id": "inv8",
+      "admission_id": "a8",
+      "service_ids": [
+        "s6",
+        "s7",
+        "s8"
+      ],
+      "subtotal": 5500,
+      "discount": 200,
+      "total": 5300
+    },
+    {
+      "id": "inv9",
+      "admission_id": "a9",
+      "service_ids": [
+        "s4",
+        "s6",
+        "s7"
+      ],
+      "subtotal": 3800,
+      "discount": 0,
+      "total": 3800
+    },
+    {
+      "id": "inv10",
+      "admission_id": "a10",
+      "service_ids": [
+        "s2",
+        "s7"
+      ],
+      "subtotal": 3000,
+      "discount": 0,
+      "total": 3000
+    },
+    {
+      "id": "inv11",
+      "admission_id": "a11",
+      "service_ids": [
+        "s2",
+        "s7"
+      ],
+      "subtotal": 3000,
+      "discount": 0,
+      "total": 3000
+    },
+    {
+      "id": "inv12",
+      "admission_id": "a12",
+      "service_ids": [
+        "s6",
+        "s7"
+      ],
+      "subtotal": 2000,
+      "discount": 0,
+      "total": 2000
+    },
+    {
+      "id": "inv13",
+      "admission_id": "a13",
+      "service_ids": [
+        "s9",
+        "s7"
+      ],
+      "subtotal": 65800,
+      "discount": 500,
+      "total": 65300
+    },
+    {
+      "id": "inv14",
+      "admission_id": "a14",
+      "service_ids": [
+        "s2",
+        "s7"
+      ],
+      "subtotal": 3000,
+      "discount": 0,
+      "total": 3000
+    },
+    {
+      "id": "inv15",
+      "admission_id": "a15",
+      "service_ids": [
+        "s4",
+        "s6",
+        "s7"
+      ],
+      "subtotal": 3800,
+      "discount": 0,
+      "total": 3800
+    }
+  ],
+  "payments": [
+    {
+      "id": "pay1",
+      "invoice_id": "inv1",
+      "amount": 20000,
+      "date": "2020-04-19"
+    },
+    {
+      "id": "pay2",
+      "invoice_id": "inv2",
+      "amount": 3800,
+      "date": "2023-08-13"
+    },
+    {
+      "id": "pay3",
+      "invoice_id": "inv3",
+      "amount": 2280,
+      "date": "2019-12-12"
+    },
+    {
+      "id": "pay4",
+      "invoice_id": "inv4",
+      "amount": 3000,
+      "date": "2020-05-22"
+    },
+    {
+      "id": "pay5",
+      "invoice_id": "inv5",
+      "amount": 20000,
+      "date": "2021-10-08"
+    },
+    {
+      "id": "pay6",
+      "invoice_id": "inv6",
+      "amount": 5300,
+      "date": "2023-01-01"
+    },
+    {
+      "id": "pay7",
+      "invoice_id": "inv7",
+      "amount": 800,
+      "date": "2020-06-23"
+    },
+    {
+      "id": "pay8",
+      "invoice_id": "inv8",
+      "amount": 5300,
+      "date": "2020-03-08"
+    },
+    {
+      "id": "pay9",
+      "invoice_id": "inv9",
+      "amount": 3800,
+      "date": "2021-03-04"
+    },
+    {
+      "id": "pay10",
+      "invoice_id": "inv10",
+      "amount": 1800,
+      "date": "2022-11-15"
+    },
+    {
+      "id": "pay11",
+      "invoice_id": "inv11",
+      "amount": 3000,
+      "date": "2023-06-28"
+    },
+    {
+      "id": "pay12",
+      "invoice_id": "inv12",
+      "amount": 2000,
+      "date": "2020-01-21"
+    }
+  ],
+  "expenses": [
+    {
+      "id": "e1",
+      "department": "Radiology",
+      "category": "Equipment Lease & Maintenance",
+      "amount": 65000,
+      "month": "2026-03"
+    },
+    {
+      "id": "e2",
+      "department": "Cardiology",
+      "category": "Consumables & Lab Supplies",
+      "amount": 42000,
+      "month": "2026-03"
+    },
+    {
+      "id": "e3",
+      "department": "General",
+      "category": "Staff Payroll & Utilities",
+      "amount": 35000,
+      "month": "2026-03"
+    },
+    {
+      "id": "e4",
+      "department": "Radiology",
+      "category": "Equipment Lease & Maintenance",
+      "amount": 68000,
+      "month": "2026-04"
+    },
+    {
+      "id": "e5",
+      "department": "Cardiology",
+      "category": "Consumables & Lab Supplies",
+      "amount": 45000,
+      "month": "2026-04"
+    },
+    {
+      "id": "e6",
+      "department": "General",
+      "category": "Staff Payroll & Utilities",
+      "amount": 36000,
+      "month": "2026-04"
+    },
+    {
+      "id": "e7",
+      "department": "Radiology",
+      "category": "Equipment Lease & Maintenance",
+      "amount": 70000,
+      "month": "2026-05"
+    },
+    {
+      "id": "e8",
+      "department": "Orthopedics",
+      "category": "Surgical Instruments",
+      "amount": 55000,
+      "month": "2026-05"
+    },
+    {
+      "id": "e9",
+      "department": "Radiology",
+      "category": "Equipment Lease & Maintenance",
+      "amount": 72000,
+      "month": "2026-06"
+    },
+    {
+      "id": "e10",
+      "department": "Cardiology",
+      "category": "Consumables & Lab Supplies",
+      "amount": 48000,
+      "month": "2026-06"
+    },
+    {
+      "id": "e11",
+      "department": "Radiology",
+      "category": "Equipment Lease & Maintenance",
+      "amount": 75000,
+      "month": "2026-07"
+    },
+    {
+      "id": "e12",
+      "department": "Orthopedics",
+      "category": "Implants & Supplies",
+      "amount": 60000,
+      "month": "2026-07"
+    },
+    {
+      "id": "e13",
+      "department": "Radiology",
+      "category": "Equipment Lease & Maintenance",
+      "amount": 78000,
+      "month": "2026-08"
+    },
+    {
+      "id": "e14",
+      "department": "Neurology",
+      "category": "Diagnostic Kit Supplies",
+      "amount": 30000,
+      "month": "2026-08"
+    },
+    {
+      "id": "e15",
+      "department": "General",
+      "category": "Staff Payroll & Utilities",
+      "amount": 38000,
+      "month": "2026-08"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+You are the design lead for a small design studio. Design and build the frontend UI
+for a hospital financial intelligence platform — a hackathon project that needs to
+look and feel like a decision-support tool a hospital CFO would actually trust with
+real money decisions.
+
+BASE PALETTE — LIGHT, BUT NOT THE DEFAULT LIGHT THEME
+Use a white/off-white/cream base. But do NOT reach for the standard AI-default
+light palette: warm cream (~#F4F1EA) paired with a terracotta/warm-clay accent
+(~#D97757) and a high-contrast serif display headline. That specific combination
+is the most overused "AI-generated" signature right now and will read as templated
+regardless of how well it's executed.
+
+Instead, ground the palette in the subject matter: this is a financial precision
+tool, not a lifestyle or wellness brand. Consider a cooler or more neutral off-white
+(paper-white, bone, or a very light warm gray rather than a saturated cream), paired
+with a single deliberate accent that reads as "financial," not "friendly" — think
+ink navy, deep forest, muted oxblood, or dark slate rather than terracotta, coral,
+or soft pastel teal. Propose 4-6 named hex values as part of your design plan and
+justify the accent choice specifically against this brief before proceeding.
+
+SUBJECT MATTER
+The audience is hospital finance/operations managers — not clinicians, not
+patients. Tone: precise, calm, quietly confident, like a well-run finance team's
+internal tool. Avoid hospital clichés (red crosses, stethoscope icons, soft
+pastel "wellness" styling) — this is a finance tool that happens to live in a
+hospital.
+
+SCREENS TO DESIGN (priority order — nail the first three before the rest)
+1. Executive Dashboard — 5 KPI cards (Total Revenue, Total Expenses, Net Profit,
+   Outstanding Receivables, Potential Leakage), a revenue trend chart, a
+   department profitability bar chart, a leakage alert strip.
+2. Leakage Alert screen — summary cards (Potential Leakage total, Number of
+   Alerts, Estimated Recoverable Amount) and a table (Admission / Service /
+   Reason / Estimated Impact). This is the product's single most important
+   moment — should feel like catching a real mistake, not a generic error list.
+3. ROI Simulator — input panel (Investment, Patient Volume, Avg Revenue/Patient,
+   Operating Cost) with 2 live sliders (Patient Volume ±10%, Operating Cost
+   +10%) and a results panel (Monthly Revenue, Break-even Period, ROI) that
+   updates as inputs change.
+4. AI Copilot — simple chat panel, 4-5 clickable suggested questions, plain-text
+   answers. Visually quiet — it supports the other screens, isn't the star.
+5. Forecast chart — one line chart, historical vs. forecast, with the forecast
+   portion visually distinct through line weight or dash pattern, not just color.
+
+NAVIGATION — LEFT SIDEBAR
+Build the primary navigation as a left-hand sidebar listing the 5 screens above
+as tabs. It needs to feel considered, not like a stock admin-template sidebar:
+- Collapsible: a toggle that shrinks the sidebar down to icon-only width and
+  back to full width with labels. Persist the collapsed/expanded state (local
+  component state is enough, no need for anything more today). In the collapsed
+  state, show a short tooltip on hover with the tab's full label so nothing is
+  lost, just deferred.
+- Clean, not decorated: no card border around the whole sidebar, no drop shadow
+  separating it from the page — a simple background/border-color difference
+  from the main content area is enough to read as its own region.
+- Active tab should be unmistakable at a glance — through weight, an accent-
+  colored indicator (a thin left-edge bar or filled background), and icon
+  color, not just a text color change alone.
+- Hover animation: give each tab a "float" feel on hover — a small upward
+  lift (translateY of a few px) combined with a subtle shadow or background
+  shift, on a quick, snappy transition (150-200ms, ease-out). This is the ONE
+  sanctioned hover motion for this UI (see the avoid-list below, which still
+  applies to every other hover state in the product) — make it feel light and
+  responsive, not bouncy or exaggerated. Icons can lift independently of their
+  label by a slightly different amount for a subtle parallax touch, if it
+  doesn't add real build complexity.
+- Respect prefers-reduced-motion: fall back to a simple color/background change
+  with no movement when it's set.
+
+EXPLICITLY AVOID THESE — check your output against every item before calling it done
+- The cream + terracotta + serif-display combination described above, in any
+  close variant of it.
+- Identical rounded cards with the same soft grey drop-shadow (rgba(0,0,0,.1))
+  under every single one, regardless of hierarchy — this is the generic
+  "SaaS-card-kit" look. Vary card treatment by importance instead: the 5 KPI
+  cards should not look identical to a table row wrapped in a card.
+- ALL-CAPS tracked-out eyebrow labels above headings.
+- Meta strings joined with middle dots ("Revenue · Monthly · Live").
+- Labels built as "WORD — fragment" with a spaced em dash.
+- A "→" appended to every button or link by default.
+- A monospace typeface for small data labels just because it "looks technical."
+- Numbered markers (01 / 02 / 03) unless the content is genuinely a sequence —
+  none of these 5 screens are.
+- Fade-and-slide-up entrance animation on every section, or a hover transition
+  on every card/button in the product — the sidebar tab float above is the one
+  deliberate exception; everything else should stay static on hover, or use no
+  more than a simple, quick color shift.
+
+DESIGN PROCESS
+Before writing code, propose a compact design plan:
+- Color: 4-6 named hex values per the palette guidance above, with a one-line
+  justification for the accent choice specific to this brief.
+- Type: 1-2 typefaces and their roles. The large KPI numbers are the most
+  important typographic decision here — treat them as the visual anchor of the
+  page, not a neutral number in a card.
+- Layout: one or two sentences plus a rough ASCII wireframe. Decide deliberately
+  whether this reads dense/data-forward or spacious/calm, and justify it against
+  a CFO scanning quickly.
+- Principles: 2-3 sentences on what makes this feel like a specific, considered
+  choice for this brief rather than a template.
+
+Then re-check the plan against the "explicitly avoid" list above and revise
+anything that matches before building.
+
+STRUCTURAL DECISIONS SPECIFIC TO THIS PRODUCT
+- The leakage alert should visually stand apart from routine KPIs without
+  looking like a system error or scary red banner — "we caught something," not
+  "something is broken."
+- Currency is in ₹ (INR), formatted in lakhs/crores where the audience would
+  expect it (e.g. "₹2.4Cr" not "₹24000000").
+
+TECHNICAL CONSTRAINTS
+- React + Tailwind CSS, charts via Recharts.
+- Components: Sidebar.jsx, Dashboard.jsx, LeakageAlert.jsx, RoiSimulator.jsx,
+  AiCopilot.jsx, ForecastChart.jsx — self-contained, reading from a single
+  seed.json-shaped data source passed as props or via one shared service
+  function.
+- Needs to look finished within a few hours of build time — favor plain
+  Tailwind utility classes over custom illustration or heavy animation.
+- Responsive to a laptop/projector resolution is enough — this is a live demo.
+  Don't spend time on mobile layouts.
+- Respect prefers-reduced-motion for any transitions.
+
+Work in two passes: propose the design plan and wireframe first, then build only
+after reviewing that plan against the avoid-list above.
